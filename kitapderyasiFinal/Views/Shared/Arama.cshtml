@@ -1,0 +1,8 @@
+﻿
+
+@using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "navbar-search pull-left" }))
+{
+    @Html.TextBox("q")<input type="submit" value="Search" style="margin-left:30px;background-color: #65a1b9; min-height: 40px; min-width: 90px; color:white; border-color: transparent; border-radius: 12px "/>
+    @*<input type="text" name="q" placeholder="Arama" class="search-query span2" style="min-height: 40px; min-width: 390px;">
+    <button type="submit" style="margin-left:30px;background-color: #65a1b9; min-height: 40px; min-width: 90px; color:white; border-color: transparent; border-radius: 12px ">Ara</button>*@
+} 

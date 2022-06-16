@@ -1,0 +1,25 @@
+﻿
+
+<ul class="nav pull-right">
+    @if (Request.IsAuthenticated)
+    {
+        if (this.User.IsInRole("admin"))
+        {
+            <li style=" min-height: 40px; min-width: 90px; margin: 10px; border-radius: 12px"><a href="/Admin/Index" target="_blank"><span class="icon-user"></span>Admin Paneli</a></li>
+            <li style=" min-height: 40px; min-width: 90px; margin: 10px; border-radius: 12px"><a href="/Account/UserProfile"><span class="icon-edit"></span>@User.Identity.Name </a></li>
+            <li style=" min-height: 40px; min-width: 90px; margin: 10px; border-radius: 12px"><a href="/Account/Index">Siparişlerim</a></li>
+            <li class="label-warning" style="background-color: #65a1b9;min-height: 40px; min-width: 90px; margin: 10px; border-radius: 12px"><a href="/Account/LogOut" style="color:white"><span class="icon-remove"></span>Çıkış</a></li>
+        }
+        else
+        {
+            <li style=" min-height: 40px; min-width: 90px; margin: 10px; border-radius: 12px"><a href="/Account/UserProfile"><span class="icon-edit"></span>Profilim: @User.Identity.Name</a></li>
+            <li style=" min-height: 40px; min-width: 90px; margin: 10px; border-radius: 12px"><a href="/Account/Index">Siparişlerim</a></li>
+            <li class="label-warning" style="background-color: #65a1b9;min-height: 40px; min-width: 90px; margin: 10px; border-radius: 12px"><a href="/Account/LogOut" style="color:white"><span class="icon-remove"></span>Çıkış</a></li>
+                }
+            }
+            else
+    {
+<li class="label-warning" style="background-color: #65a1b9; min-height: 40px; min-width: 90px; margin: 10px; border-radius: 12px"><a href="/Account/Register" style="color:white"><span class="icon-edit"></span>Kayıt Ol</a></li>
+        <li class="label-default" ><a href="/Account/Login" style="color: #65a1b9;min-height: 40px; min-width: 90px;margin:10px"><span class="icon-user"></span>Giriş Yap</a></li>
+    }
+</ul>

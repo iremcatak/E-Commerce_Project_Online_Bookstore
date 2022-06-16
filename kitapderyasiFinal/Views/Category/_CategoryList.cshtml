@@ -1,0 +1,9 @@
+﻿@using kitapderyasiFinal.Models
+@model IEnumerable<CategoryModel>
+
+<li><a href="/Home/Product" style="color: #65a1b9"><i class="fa fa-star"></i>Tüm Ürünler</a></li>
+
+@foreach (var item in Model)
+{
+    <li><a href="/Home/ProductList/@item.Id"style="color: #65a1b9"><span class="icon-chevron-right"></span>@item.Name </a></li>
+}

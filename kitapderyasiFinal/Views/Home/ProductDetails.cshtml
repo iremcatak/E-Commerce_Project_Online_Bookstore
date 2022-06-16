@@ -1,0 +1,73 @@
+﻿@using kitapderyasiFinal.Entity
+@model Product
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("Summary", "Cart")
+            </ul>
+        </div>
+
+        
+        @Html.Action("_FeaturedProductList", "Home")
+
+    </div>
+    <div class="span9"style="margin-left:150px">
+        <ul class="breadcrumb">
+            <li><a href="/Home/Index">Anasayfa</a> <span class="divider">/</span></li>
+            <li><a href="/Home/Product">Ürün</a> <span class="divider">/</span></li>
+            <li class="active">Ürün: @Model.Name</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                        
+                            <div class="item active">
+                                <a href="#"> <img src="~/Content/image/@Model.Image" alt="" style="width:100%"></a>
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3>@Model.Name</h3>
+                    <h4 style="color:gray">@Model.Brand</h4>
+                    <hr class="soft" />
+                    @using (Html.BeginForm("AddToCart", "Cart", new { @class = "form-horizontal qtyFrm" }))
+                    {
+                        @Html.HiddenFor(i => i.Id)
+
+                <div class="control-group">
+                    <h4 style="color:gray"><span>@Model.Writer</span></h4>
+                    <h4 style="color: #65a1b9"><span>@Model.Colour</span></h4> <br />
+
+                </div>
+
+                <div class="control-group">
+                  
+                    <h3 style="text-align:right"><span>@Model.Price ₺</span> </h3>
+                </div>
+
+                <h4> Ürün Özellikleri:</h4>
+                        <p>
+                            <br /> 
+                            @Model.Description
+                        </p>
+                        <p>
+                            <br />
+                            <button type="submit" class="shopBtn" style="color:white;background-color: #65a1b9"><span class=" icon-shopping-cart"></span>Sepete Ekle</button>
+                        </p>
+                    }
+
+
+                </div>
+            </div>
+            <hr class="softn clr" />
+
+        </div>
+    </div>
+</div>

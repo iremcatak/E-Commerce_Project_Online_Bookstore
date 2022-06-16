@@ -1,0 +1,53 @@
+﻿@using kitapderyasiFinal.Entity
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("Summary", "Cart")
+            </ul>
+        </div>
+
+
+        @Html.Action("_FeaturedProductList", "Home")
+
+    </div>
+    <div class="span9">
+        <!--
+        New Products
+        -->
+        <div class="well well-small"  style="margin-left:50px;min-width:1000px">
+            <h3>Ürünlerimiz </h3>
+            <div class="row-fluid">
+                <ul class="thumbnails" style="background-color: #F3F2F2">
+                    @foreach (var item in Model)
+                    {
+                        <li class="span4" style="max-width:217px;max-height:417px;min-width:217px;min-height:417px;padding:0px;margin:13px">
+
+                            <div class="thumbnail" style="max-width: 217px; max-height: 417px; min-width: 217px; min-height: 417px; background-color: #F3F2F2 ">
+                                <h4><a class="shopBtn" href="/Home/ProductDetails/@item.Id" title="add to cart" style="color:white;background-color: #65a1b9;margin-left:90px"><i class="fa icon-search" aria-hidden="true"></i></a></h4>
+                                <a href="/Home/ProductDetails/@item.Id"><img src="~/Content/image/@item.Image" alt="" style="max-width:207px;max-height:206px;min-width:207px;min-height:267px"></a>
+                                <div class="caption cntr">
+                                    <p>@item.Name</p>
+                                    <p><strong>@item.Price ₺</strong></p>
+
+                                    <br class="clr">
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+

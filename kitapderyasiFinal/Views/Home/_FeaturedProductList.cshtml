@@ -1,0 +1,19 @@
+﻿@using kitapderyasiFinal.Entity
+@model IEnumerable<Product>
+
+<h3>Popüler Ürünler</h3>
+<ul class="nav nav-list promowrapper">
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="thumbnail">
+                <img src="~/Content/image/@item.Image" alt="@item.Name" style="max-width:207px;max-height:206px;min-width:207px;min-height:267px">
+                <div class="caption">
+                    <h4><a class="defaultBtn" href="/Home/ProductDetails/@item.Id" style="color:white;background-color: #65a1b9">Görüntüle</a> <span class="pull-right">@item.Price ₺</span></h4>
+                </div>
+            </div>
+        </li>
+
+    }
+
+</ul>

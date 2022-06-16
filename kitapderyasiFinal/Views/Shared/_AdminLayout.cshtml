@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>kitapderyasi | Admin Paneli</title>
+    <!-- Favicon -->
+    <link href="~/Content/image/kitapderyasiicon.png" rel="icon">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.2 -->
+    <link href="/Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- DATA TABLES -->
+    <link href="/Admin/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/Admin/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/Admin/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="skin-blue">
+    <div class="wrapper">
+
+        <header class="main-header">
+            <a href="/Admin/Index" class="logo"><b>Admin</b></a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                
+                        <!-- Notifications: style can be found in dropdown.less -->
+                       @Html.Action("NotificationMenu","Admin")
+                        <!-- Tasks: style can be found in dropdown.less -->
+                     
+                        <!-- User Account: style can be found in dropdown.less -->
+                      
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <!-- search form -->
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">SEÇENEKLER</li>
+                    <li>
+                        <a href="/Home/Index">
+                            <i class="fa fa-star"  style="color:aqua"></i> <span>Web sayfasına git</span> 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Index">
+                            <i class="fa fa-cogs" style="color: aqua" aria-hidden="true"></i> <span>Admin Anasayfa</span> 
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-list"  style="color: aqua"aria-hidden="true"></i> <span>Kategori İşlemleri</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Category/Create"><i class="fa fa-circle-o"></i>Kategori Ekle</a></li>
+                            <li><a href="/Category/Index"><i class="fa fa-circle-o"></i>Kategori Listesi</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-tags"  style="color: aqua" aria-hidden="true"></i> <span>Ürün İşlemleri</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Product/Create"><i class="fa fa-circle-o"></i>Ürün Ekle</a></li>
+                            <li><a href="/Product/Index"><i class="fa fa-circle-o"></i>Ürün Listesi</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-truck" style="color: aqua" aria-hidden="true"></i> <span>Sipariş İşlemleri</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Order/Index"><i class="fa fa-circle-o"></i>Tüm Siparişler</a></li>
+                            <li><a href="/Order/WaitingOrders"><i class="fa fa-circle-o"></i>Bekleyen Siparişler</a></li>
+                            <li><a href="/Order/CompletedOrders"><i class="fa fa-circle-o"></i>Tamamlanan Siparişler</a></li>
+                            <li><a href="/Order/PackagedOrders"><i class="fa fa-circle-o"></i>Paketlenen Siparişler</a></li>
+                            <li><a href="/Order/ShippedOrders"><i class="fa fa-circle-o"></i>Kargolanan Siparişler</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            @RenderBody()
+        </div><!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Versiyon</b> 3.1
+            </div>
+            <strong>Copyright &copy; 2022 <a href="#">İrem Çatak</a>.</strong>Tüm hakları saklıdır.
+        </footer>
+    </div><!-- ./wrapper -->
+    <!-- jQuery 2.1.3 -->
+    <script src="/Admin/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="/Admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- DATA TABES SCRIPT -->
+    <script src="/Admin/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="/Admin/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <!-- SlimScroll -->
+    <script src="/Admin/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src='/Admin/plugins/fastclick/fastclick.min.js'></script>
+    <!-- AdminLTE App -->
+    <script src="/Admin/dist/js/app.min.js" type="text/javascript"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/Admin/dist/js/demo.js" type="text/javascript"></script>
+    <!-- page script -->
+    <script type="text/javascript">
+$(function () {
+    $('#example1').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+        }
+    });
+        $('#example2').dataTable({
+          "bPaginate": true,
+          "bLengthChange": false,
+          "bFilter": false,
+          "bSort": true,
+          "bInfo": true,
+          "bAutoWidth": false
+        });
+      });</script>
+
+</body>
+</html>
